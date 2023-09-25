@@ -1,9 +1,27 @@
 <!DOCTYPE html>
 <html>
   <body>
+    <h1>正态随机</h2>
     <canvas id="canvas" width="500" height="500"></canvas>
+    <h1>均匀随机</h1>
+    <canvas id="canvas2" width="500" height="500"></canvas>
   </body>
 </html>
 
 <script src="./boxMuller.js"></script>
 <script src="./index.js"></script>
+
+<style scoped lang="scss">
+  body{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+  h1{
+    font-weight: bold;
+    font-size: 46px;
+  }
+  canvas{
+    border: 1px solid black;
+  }
+</style>

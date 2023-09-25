@@ -32,7 +32,7 @@ function randomNormalDistribution() {
     u = Math.random() * 2 - 1.0;
     v = Math.random() * 2 - 1.0;
     w = u * u + v * v;
-  } while (w == 0.0 || w >= 1.0);
+  } while (w === 0.0 || w >= 1.0);
   //这里就是 Box-Muller转换
   c = Math.sqrt((-2 * Math.log(w)) / w);
   //返回2个标准正态分布的随机数，封装进一个数组返回
@@ -66,24 +66,10 @@ function getCoordinateInNormalDistribution(
   return [Math.round(value_x), Math.round(value_y)];
 }
 
-function draw(coordinate) {
-  const [x, y] = coordinate;
-  console.log(x, y);
-}
-
-function main() {
-  const arr = new Array(999).fill(0);
-  arr.map((e) => {
-    const coordinate = getCoordinateInNormalDistribution(
-      50,
-      50,
-      0,
-      0,
-      100,
-      100,
-      10,
-      10
-    );
-    draw(coordinate);
-  });
+function getFlatCoordinate(min_x, min_y, max_x, max_y) {
+  const range_x = max_x - min_x;
+  const range_y = max_y - min_y;
+  const value_x = min_x + Math.random() * range_x;
+  const value_y = min_y + Math.random() * range_y;
+  return [value_x, value_y];
 }
